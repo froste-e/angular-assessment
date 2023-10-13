@@ -12,8 +12,8 @@ export class ApiService {
 
   registerUserInput() {
     this.httpClient.get<{ success: boolean }>(registerUserURl).subscribe({
-      next: this.handleRegisterResponse.bind(this),
-      error: this.handleError.bind(this),
+      next: (response) => this.handleRegisterResponse(response),
+      error: (error) => this.handleError(error),
     });
   }
 
